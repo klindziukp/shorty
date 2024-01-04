@@ -1,0 +1,28 @@
+version: "3"
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=links
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+      - ./script/000-schema.sql:/docker-entrypoint-initdb.d/000-schema.sql
+      - ./script/001-data.sql:/docker-entrypoint-initdb.d/001-data.sql
+    ports:
+      - 5432:5432
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    ports:
+      - 80:80
+  redis:
+    container_name: redis
+    image: redis
+    ports:
+      - 6379:6379

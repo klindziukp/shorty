@@ -34,8 +34,8 @@ public class LinkRestController {
     return linkRepository.save(linkEntity);
   }
 
-  @DeleteMapping("/add")
-  public Mono<Void> addLink(Long linkId) {
+  @DeleteMapping("/delete")
+  public Mono<Void> delete(Long linkId) {
     return linkRepository.deleteById(linkId);
   }
 }

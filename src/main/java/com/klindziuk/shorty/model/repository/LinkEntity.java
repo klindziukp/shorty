@@ -2,19 +2,21 @@
  * Copyright (c) Dandelion development.
  */
 
-package com.klindziuk.shorty.model;
+package com.klindziuk.shorty.model.repository;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
-@Table("links")
 @Data
+@Accessors(chain = true)
 @AllArgsConstructor
 @NoArgsConstructor
+@Table("links")
 public class LinkEntity {
 
   @Id

@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+    id 'io.gatling.gradle' version '3.10.3'
+}
+
+group 'com.klindziuk'
+version '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    sourceCompatibility = '17'
+}
+
+dependencies {
+    implementation 'io.gatling:gatling-core:3.10.3'
+    implementation 'io.gatling:gatling-core-java:3.10.3'
+    implementation 'io.gatling:gatling-http-java:3.10.3'
+}
